@@ -34,6 +34,7 @@
 /composer.phar
 
 # Added by me, from experience..
+/symfony.sh
 *-e
 *.swp
 *~
