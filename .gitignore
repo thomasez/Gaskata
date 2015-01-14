@@ -32,3 +32,8 @@
 
 # Composer PHAR
 /composer.phar
+
+# Added by me, from experience..
+*-e
+*.swp
+*~
