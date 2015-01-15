@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: Gaskata\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    # Have to have a discussion with myself (or you, if you read this and have
+    # an opinion.
+    app.authentication:
+        class: Gaskata\Utils\Authentication
+        arguments: ['@service_container' ]
+
