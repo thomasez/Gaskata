@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Gaskata\Entity\AuthUser;
+use BisonLab\CommonBundle\Controller\CommonController as CommonController;
 
 /**
  * AA controller.
@@ -17,7 +18,7 @@ use Gaskata\Entity\AuthUser;
  *
  * @Route("/aa")
  */
-class AaController extends Controller
+class AaController extends CommonController
 {
 
     /**
@@ -54,7 +55,6 @@ class AaController extends Controller
 
         $entity = $em->getRepository('Gaskata:AuthUser')->findOneBy($check_arr);
 
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find AuthUser entity.');
         }
@@ -71,6 +71,6 @@ class AaController extends Controller
             'auth_token' => $entity->getAuthToken(),
         );
 
-        return new Response(json_encode($resp_data), 200);
+        return $this->returnRestData($request, $resp_data);
     }
 }
