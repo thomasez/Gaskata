@@ -36,11 +36,19 @@ class AaController extends Controller
         $request->request->get('password') ? $check_arr['password'] = $request->request->get('password') : null ;
         $request->request->get('auth_token') ? $check_arr['auth_token'] = $request->request->get('auth_token') : null ;
 
+        /* We *have* to have both an ident (user_ident or email) 
+         * an a key (password or token). Without, we fail.
+         * 
+         * This is the back-end, so what we can discuss is wether to always
+         * return a 404 on *everything* or diversify with 401, 403 and so on.
+         * Then the front end(s) have to make sure they just return "Wrong user
+         * ident or password" whatever happens. We do not want script kiddies
+         * to find user idents based on error on login.
+         **/
         if (!(
                (isset($check_arr['user_ident']) || isset($check_arr['email']))
             && (isset($check_arr['password']) || isset($check_arr['auth_token']))
             )) {
-error_log("hrmf");
             throw $this->createNotFoundException('Unable to find AuthUser entity.');
         }
 
