@@ -1,20 +1,10 @@
 {% extends "BisonLabCommonBundle::layout.html.twig" %}
+{% block title %}Gaskata{% endblock title %}
 {% block lsidemenu %}
-    <script type="text/javascript" src="{{ asset('bundles/biconlabcommon/js/jquery-ui.min.js') }}"></script>
-    <link rel="stylesheet" src="{{ asset('bundles/biconlabcommon/css/jquery-ui.css') }}" type="text/css" media="all" />
-    {% if is_granted("ROLE_USER") %}
-    <ul>
-        <li class='active'> <a href="{{ path('homepage') }}"><span>Search</span></a>
-        <li>&nbsp;
-        <li> <a href="{{ path('authuser') }}">AuthUsers</a>
-        <li>&nbsp;
-        <li> <a href="{{ path('fos_user_profile_show') }}">Profile</a>
-        <li> <a href="{{ path('fos_user_change_password') }}">Change password</a>
+    <li> <a href="{{ path('authuser') }}">AuthUsers</a>
+    <li> <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+    <li> <a href="{{ path('fos_user_change_password') }}">Change password</a>
     {% if is_granted('ROLE_ADMIN') %}
-        <li>&nbsp;
         <li> <a href="{{ path('user') }}">User admin</a>
-    {% endif %}
-
-    </ul>
     {% endif %}
 {% endblock lsidemenu %}
