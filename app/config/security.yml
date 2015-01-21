@@ -28,6 +28,9 @@ security:
             http_basic: 
                 realm: "REST API"
             stateless:  true
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
         main:
             pattern: ^/
             form_login:
@@ -38,9 +41,6 @@ security:
                 default_target_path: /
             logout:       true
             anonymous:    false
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
 
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
