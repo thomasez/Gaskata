@@ -22,6 +22,9 @@ security:
         login_firewall:
             pattern:    ^/login$
             anonymous:  true
+        ping:
+            pattern:    ^/ping$
+            anonymous:  true
         rest:
             pattern: ^/(rest|aa)
             anonymous:  false
