@@ -51,6 +51,7 @@
         ]
     },
     "config": {
+        "component-dir": "web/public",
         "bin-dir": "bin"
     },
     "extra": {
@@ -58,10 +59,11 @@
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "keep-outdated": true
         },
         "branch-alias": {
-            "dev-master": "2.6-dev"
+            "dev-master": "2.7-dev"
         }
     }
 }
