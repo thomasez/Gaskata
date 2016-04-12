@@ -29,22 +29,9 @@ framework:
 # Twig Configuration
 twig:
     form:
-        resources: ['bootstrap_3_layout.html.twig']
+        resources: ['bootstrap_3_horizontal_layout.html.twig']
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
-# Assetic Configuration
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ ]
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        #closure:
-        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-        #yui_css:
-        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
 # Doctrine Configuration
 doctrine:
