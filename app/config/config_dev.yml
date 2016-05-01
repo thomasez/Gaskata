@@ -14,23 +14,29 @@ web_profiler:
 monolog:
     handlers:
         main:
-            type:   stream
+            type:  rotating_file
             path:   "%kernel.logs_dir%/%kernel.environment%.log"
             level:  debug
+            channels: ["!security","!event", "!doctrine"]
+            max_files: 5
+        applog:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%-error.log"
+            level:  error
         console:
             type:   console
             bubble: false
             verbosity_levels:
-                VERBOSITY_VERBOSE: INFO
-                VERBOSITY_VERY_VERBOSE: DEBUG
-            channels: ["!doctrine"]
+                verbosity_verbose: info
+                verbosity_very_verbose: debug
+            channels: ["!event", "!doctrine"]
         console_very_verbose:
             type:   console
             bubble: false
             verbosity_levels:
-                VERBOSITY_VERBOSE: NOTICE
-                VERBOSITY_VERY_VERBOSE: NOTICE
-                VERBOSITY_DEBUG: DEBUG
+                verbosity_verbose: notice
+                verbosity_very_verbose: notice
+                verbosity_debug: debug
             channels: ["doctrine"]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
